@@ -1,0 +1,25 @@
+This is example project that creates image and starts container by mapping a volume
+/app in the container is being mapped to the ./folder2 and anychanges are reflected in runtime immediatelly
+/app/module is not papped is being created inside the container with npm install
+
+For both options to run  following file must be present: Dockerfile
+
+
+#Option 1
+Build image:
+docker build -t imgnodejs .
+
+Create container:
+docker run -i -t --name contnodejsvol -p 3000:3000 -v /app/node_modules -v $(pwd):/app imgnodejs
+
+
+
+#Option 2
+Use following command to create the image and start container:
+
+docker-compose up
+
+Requires docker-compose.yml
+
+
+
